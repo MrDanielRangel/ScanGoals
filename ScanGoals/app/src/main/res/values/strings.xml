@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Scan Goals</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_qrscanner">QRScanner</string>
+    <string name="title_activity_journal">Journal</string>
+    <string name="title_activity_choicesqr">Choicesqr</string>
+    <string name="title_activity_settings_screen">Settings Screen</string>
+    <string name="qr_reader">QR Reader</string>
+    <string name="journal">Journal</string>
+    <string name="settings">Settings</string>
+    <string name="title_activity_qrscanner2">QR Scanner2</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_qrchoices">QR Choices</string>
+    <string name="back">Back</string>
+</resources>
