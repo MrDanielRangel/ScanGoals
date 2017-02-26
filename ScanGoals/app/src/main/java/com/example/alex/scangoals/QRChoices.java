@@ -10,7 +10,7 @@ import android.widget.Button;
 public class QRChoices extends AppCompatActivity {
     private Button btnLogJR;
     private Button btnBackCH;
-
+    private Button btnVideo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +28,12 @@ public class QRChoices extends AppCompatActivity {
         btnBackCH.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 startActivity(new Intent(QRChoices.this, mainMenu.class));
+            }
+        });
+        btnVideo = (Button) findViewById(R.id.btnVideo);
+        btnVideo.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                startActivity(new Intent(QRChoices.this, VideoPage.class));
             }
         });
 

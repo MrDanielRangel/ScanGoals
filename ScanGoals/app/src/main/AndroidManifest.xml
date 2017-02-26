@@ -33,6 +33,10 @@
         <activity
             android:name=".QRChoices"
             android:label="@string/title_activity_qrchoices"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".VideoPage"
+            android:label="@string/title_activity_video_page"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

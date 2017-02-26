@@ -12,4 +12,5 @@
     <string name="title_activity_settings">Settings</string>
     <string name="title_activity_qrchoices">QR Choices</string>
     <string name="back">Back</string>
+    <string name="title_activity_video_page">VideoPage</string>
 </resources>
