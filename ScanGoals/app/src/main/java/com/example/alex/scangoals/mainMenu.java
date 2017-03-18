@@ -6,19 +6,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 
 public class mainMenu extends AppCompatActivity {
     private Button btnQR;
     private Button btnJournal;
     private Button btnSettings;
-    final EditText etUsername = (EditText) findViewById(R.id.etUsername);
-    final TextView welcomeMsg = (TextView) findViewById(R.id.welcomeMsg);
+    //final EditText etUsername = (EditText) findViewById(R.id.etUsername);
+    //final TextView welcomeMsg = (TextView) findViewById(R.id.welcomeMsg);
 
-    Intent intent = getIntent();
-    String username = intent.getStringExtra("username");
-    String message = username + " welcome to Scan Goals";
+   // Intent intent = getIntent();
+    //String username = intent.getStringExtra("username");
+    //String message = username + " welcome to Scan Goals";
 
     //output username message
 
@@ -50,28 +48,5 @@ public class mainMenu extends AppCompatActivity {
             }
         });
     }
-
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_main_menu, menu);
-//        return true;
-//    }
-
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
 
 }

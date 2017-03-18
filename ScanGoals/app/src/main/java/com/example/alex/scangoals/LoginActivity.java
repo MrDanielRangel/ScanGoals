@@ -52,10 +52,10 @@ public class LoginActivity extends AppCompatActivity {
 
                           if (success) {
                               String username = jsonResponse.getString("username");
-
-                              Intent intent = new Intent(LoginActivity.this, mainMenu.class);
-                              intent.putExtra("username", username);
-                              LoginActivity.this.startActivity(intent);
+                              startActivity(new Intent(LoginActivity.this, mainMenu.class));
+                              //Intent intent = new Intent(LoginActivity.this, mainMenu.class);
+                              //intent.putExtra("username", username);
+                              //LoginActivity.this.startActivity(intent);
                           } else {
                               AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
                               builder.setMessage("Login Failed")
