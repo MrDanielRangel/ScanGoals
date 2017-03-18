@@ -12,7 +12,7 @@ public class VideoPage extends YouTubeBaseActivity
         implements YouTubePlayer.OnInitializedListener {
 
     private String GOOGLE_API_KEY = "AIzaSyAfMBf1d8pwfrhaSXBFJh8zhvsysOr1bFo";
-    private String YOUTUBE_VIDEO_ID = "kd45Q18ML-s";
+    private String YOUTUBE_VIDEO_ID = null; //= "kd45Q18ML-s";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

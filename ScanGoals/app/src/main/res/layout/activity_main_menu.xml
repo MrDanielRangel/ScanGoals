@@ -22,6 +22,13 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_main_menu"/>
+    <include layout="@layout/content_main_menu"
+        android:id="@+id/include" />
+
+    <TextView
+        android:id="@+id/welcomeMsg"
+        android:layout_width="170dp"
+        android:layout_height="83dp"
+        android:text="Username Goes Here" />
 
 </android.support.design.widget.CoordinatorLayout>
