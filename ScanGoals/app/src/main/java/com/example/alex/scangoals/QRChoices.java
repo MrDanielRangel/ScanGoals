@@ -19,6 +19,7 @@ public class QRChoices extends AppCompatActivity {
     private Button btnLogJR;
     private Button btnBackCH;
     private Button btnVideo;
+    public static Bundle stuffToGrab = new Bundle();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +43,7 @@ public class QRChoices extends AppCompatActivity {
         btnVideo.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                final String videoURL = null;
+                final String videoURL = "";
                 Response.Listener<String> responseListener = new Response.Listener<String>(){
                     @Override
                     public void onResponse(String response) {
@@ -51,6 +52,10 @@ public class QRChoices extends AppCompatActivity {
                             boolean success = jsonResponse.getBoolean("success");
 
                             if (success) {
+                                String videoKey1 = jsonResponse.getString("videoKey");
+                                stuffToGrab.putString("videoKey12", videoKey1);
+                                //AlertDialog.Builder builder = new AlertDialog.Builder(QRChoices.this);
+                                //builder.setMessage (setKey.YOUTUBE_VIDEO_ID).show();
                                 startActivity(new Intent(QRChoices.this, VideoPage.class));
                             } else {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(QRChoices.this);
@@ -67,11 +72,8 @@ public class QRChoices extends AppCompatActivity {
                 VideoRequest choiceRequest = new VideoRequest(videoURL, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(QRChoices.this);
                 queue.add(choiceRequest);
+
             }
         });
-
-
-
     }
-
 }
