@@ -11,6 +11,7 @@ public class mainMenu extends AppCompatActivity {
     private Button btnQR;
     private Button btnJournal;
     private Button btnSettings;
+    private Button btnInput;
     //final EditText etUsername = (EditText) findViewById(R.id.etUsername);
     //final TextView welcomeMsg = (TextView) findViewById(R.id.welcomeMsg);
 
@@ -31,6 +32,7 @@ public class mainMenu extends AppCompatActivity {
         btnQR = (Button) findViewById(R.id.btnQR);
         btnJournal = (Button) findViewById(R.id.btnJournal);
         btnSettings = (Button) findViewById(R.id.btnSettings);
+        btnInput = (Button) findViewById(R.id.btnInput);
 
         btnQR.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -45,6 +47,11 @@ public class mainMenu extends AppCompatActivity {
         btnSettings.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 startActivity(new Intent(mainMenu.this, Settings.class));
+            }
+        });
+        btnInput.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                startActivity(new Intent(mainMenu.this, InputActivity.class));
             }
         });
     }
