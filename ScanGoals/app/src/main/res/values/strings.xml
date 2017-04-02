@@ -13,4 +13,7 @@
     <string name="title_activity_qrchoices">QR Choices</string>
     <string name="back">Back</string>
     <string name="title_activity_video_page">VideoPage</string>
+    <string name="title_activity_treadmill">Treadmill</string>
+    <string name="title_activity_bench_press">BenchPress</string>
+    <string name="title_activity_squat">Squat</string>
 </resources>
