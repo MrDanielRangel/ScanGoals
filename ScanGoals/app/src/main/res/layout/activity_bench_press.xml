@@ -21,24 +21,42 @@
     </android.support.design.widget.AppBarLayout>
 
     <include android:id="@+id/include3" layout="@layout/content_bench_press"/>
-    <android.support.constraint.ConstraintLayout
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/editText3"
-            android:layout_width="227dp"
-            android:layout_height="151dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Enter workout here" tools:layout_editor_absoluteX="79dp"
-            tools:layout_editor_absoluteY="162dp"/>
         <Button
             android:id="@+id/button3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:text="Submit"
-            tools:layout_editor_absoluteX="148dp" tools:layout_editor_absoluteY="350dp"/>
-    </android.support.constraint.ConstraintLayout>
+            android:layout_width="253dp"
+            android:layout_height="61dp"
+            android:layout_column="0"
+            android:layout_row="25"
+            android:text="Submit"
+            tools:layout_editor_absoluteX="79dp"
+            tools:layout_editor_absoluteY="526dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignLeft="@+id/editText3"
+            android:layout_alignStart="@+id/editText3"
+            android:layout_marginLeft="46dp"
+            android:layout_marginStart="46dp" />
+
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="380dp"
+            android:layout_height="200dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_column="0"
+            android:layout_marginTop="151dp"
+            android:layout_row="0"
+            android:layout_weight="0.04"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Enter workout here"
+            tools:layout_editor_absoluteX="79dp"
+            tools:layout_editor_absoluteY="187dp" />
+    </RelativeLayout>
 
 
 </android.support.design.widget.CoordinatorLayout>
