@@ -19,6 +19,7 @@ public class QRChoices extends AppCompatActivity {
     private Button btnLogJR;
     private Button btnBackCH;
     private Button btnVideo;
+    private int whichWorkout = 2;
     public static Bundle stuffToGrab = new Bundle();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +31,16 @@ public class QRChoices extends AppCompatActivity {
         btnLogJR = (Button) findViewById(R.id.btnLogJR);
         btnLogJR.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                startActivity(new Intent(QRChoices.this, Journal.class));
+
+                if(whichWorkout == 1){
+                    startActivity(new Intent(QRChoices.this, Treadmill.class));
+                }else if (whichWorkout == 2){
+                    startActivity(new Intent(QRChoices.this, BenchPress.class));
+                }else if (whichWorkout == 3){
+                    startActivity(new Intent(QRChoices.this, Squat.class));
+                }
+
+
             }
         });
         btnBackCH = (Button) findViewById(R.id.btnBackCH);
