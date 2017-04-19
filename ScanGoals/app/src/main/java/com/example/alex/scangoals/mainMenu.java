@@ -10,7 +10,6 @@ import android.widget.Button;
 public class mainMenu extends AppCompatActivity {
     private Button btnQR;
     private Button btnJournal;
-    private Button btnSettings;
     private Button btnInput;
     private Button btnLogout;
     //final EditText etUsername = (EditText) findViewById(R.id.etUsername);
@@ -32,9 +31,8 @@ public class mainMenu extends AppCompatActivity {
 
         btnQR = (Button) findViewById(R.id.btnQR);
         btnJournal = (Button) findViewById(R.id.btnJournal);
-        btnSettings = (Button) findViewById(R.id.btnSettings);
         btnInput = (Button) findViewById(R.id.btnInput);
-        btnLogout = (Button) findViewById(R.id.btnLogout);
+        btnLogout = (Button) findViewById(R.id.logOutBtn);
 
         btnQR.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -44,11 +42,6 @@ public class mainMenu extends AppCompatActivity {
         btnJournal.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 startActivity(new Intent(mainMenu.this, Journal.class));
-            }
-        });
-        btnSettings.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                startActivity(new Intent(mainMenu.this, Settings.class));
             }
         });
         btnInput.setOnClickListener(new View.OnClickListener() {

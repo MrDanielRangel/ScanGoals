@@ -26,10 +26,6 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-            android:name=".Settings"
-            android:label="@string/title_activity_settings"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity
             android:name=".QRChoices"
             android:label="@string/title_activity_qrchoices"
             android:theme="@style/AppTheme.NoActionBar"/>

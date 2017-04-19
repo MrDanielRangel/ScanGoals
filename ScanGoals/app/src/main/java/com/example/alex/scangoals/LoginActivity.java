@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -28,10 +27,10 @@ public class LoginActivity extends AppCompatActivity {
         final EditText etUsername = (EditText) findViewById(R.id.etUsername);
         final EditText etPassword = (EditText) findViewById(R.id.etPassword);
         final Button bLogin = (Button) findViewById(R.id.bLogin);
-        final TextView tvRegisterLink = (TextView) findViewById(R.id.linkRegister);
+        final Button registerBtn = (Button) findViewById(R.id.registerBtn);
 
         //whenever user click the register link, then will redirect user to register page
-        tvRegisterLink.setOnClickListener(new View.OnClickListener() {
+        registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent registerIntent = new Intent(LoginActivity.this, Register.class);

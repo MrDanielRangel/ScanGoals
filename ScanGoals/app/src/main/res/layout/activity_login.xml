@@ -11,21 +11,8 @@
     <RelativeLayout
         android:layout_width="355dp"
         android:layout_height="481dp"
-        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteX="12dp"
         tools:layout_editor_absoluteY="15dp">
-
-        <TextView
-            android:id="@+id/linkRegister"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/bLogin"
-            android:layout_alignRight="@+id/bLogin"
-            android:layout_below="@+id/bLogin"
-            android:layout_marginTop="20dp"
-            android:text="Register"
-            android:textSize="18sp"
-            tools:layout_editor_absoluteX="148dp"
-            tools:layout_editor_absoluteY="246dp" />
 
         <TextView
             android:id="@+id/textView6"
@@ -86,13 +73,23 @@
 
         <Button
             android:id="@+id/bLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:text="Login"
             tools:layout_editor_absoluteX="135dp"
             tools:layout_editor_absoluteY="181dp" />
+
+        <Button
+            android:id="@+id/registerBtn"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_alignLeft="@+id/bLogin"
+            android:layout_alignStart="@+id/bLogin"
+            android:layout_below="@+id/bLogin"
+            android:layout_marginTop="11dp"
+            android:text="Register" />
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -19,12 +19,12 @@
 
         <Button
             android:id="@+id/bRegister"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Register"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
             android:layout_below="@+id/etPassword"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="47dp" />
+            android:layout_marginTop="47dp"
+            android:text="Register" />
 
         <EditText
             android:id="@+id/etUsername"
