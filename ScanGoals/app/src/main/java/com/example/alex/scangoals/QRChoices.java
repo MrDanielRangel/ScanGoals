@@ -19,24 +19,23 @@ public class QRChoices extends AppCompatActivity {
     private Button btnLogJR;
     private Button btnBackCH;
     private Button btnVideo;
-    private int whichWorkout = 2;
     public static Bundle stuffToGrab = new Bundle();
+    private String whichWorkout =  InputActivity.stuffToGrab1.getString("userInput1");
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qrchoices);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         btnLogJR = (Button) findViewById(R.id.btnLogJR);
         btnLogJR.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-
-                if(whichWorkout == 1){
+                if("1".equals(whichWorkout)){
                     startActivity(new Intent(QRChoices.this, Treadmill.class));
-                }else if (whichWorkout == 2){
+                }else if ("2".equals(whichWorkout)){
                     startActivity(new Intent(QRChoices.this, BenchPress.class));
-                }else if (whichWorkout == 3){
+                }else if ("3".equals(whichWorkout)){
                     startActivity(new Intent(QRChoices.this, Squat.class));
                 }
 
