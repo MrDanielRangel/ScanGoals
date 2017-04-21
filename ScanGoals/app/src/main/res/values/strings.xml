@@ -16,4 +16,5 @@
     <string name="title_activity_treadmill">Treadmill</string>
     <string name="title_activity_bench_press">BenchPress</string>
     <string name="title_activity_squat">Squat</string>
+    <string name="title_activity_check_for_user_permission">CheckForUserPermission</string>
 </resources>
