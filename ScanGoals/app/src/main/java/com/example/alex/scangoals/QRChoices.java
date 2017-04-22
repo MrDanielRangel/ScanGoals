@@ -21,6 +21,7 @@ public class QRChoices extends AppCompatActivity {
     private Button btnVideo;
     public static Bundle stuffToGrab = new Bundle();
     private String whichWorkout =  InputActivity.stuffToGrab1.getString("userInput1");
+    private String whichWorkoutQR = QRScanner.stuffToGrab2.getString("userInput2");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,15 +29,18 @@ public class QRChoices extends AppCompatActivity {
         setContentView(R.layout.activity_qrchoices);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+
         btnLogJR = (Button) findViewById(R.id.btnLogJR);
         btnLogJR.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                if("1".equals(whichWorkout)){
-                    startActivity(new Intent(QRChoices.this, Treadmill.class));
-                }else if ("2".equals(whichWorkout)){
-                    startActivity(new Intent(QRChoices.this, BenchPress.class));
-                }else if ("3".equals(whichWorkout)){
+                if("1".equals(whichWorkout) || "1".equals(whichWorkoutQR)){
                     startActivity(new Intent(QRChoices.this, Squat.class));
+                }else if ("2".equals(whichWorkout) || "2".equals(whichWorkoutQR)){
+                    startActivity(new Intent(QRChoices.this, BenchPress.class));
+                }else if ("3".equals(whichWorkout) || "3".equals(whichWorkoutQR)){
+                    startActivity(new Intent(QRChoices.this, Treadmill.class));
                 }
 
 
@@ -61,10 +65,17 @@ public class QRChoices extends AppCompatActivity {
                             boolean success = jsonResponse.getBoolean("success");
 
                             if (success) {
-                                String videoKey1 = jsonResponse.getString("videoKey");
+                                if("1".equals(whichWorkout) || "1".equals(whichWorkoutQR)){
+                                    stuffToGrab.putString("videoKey12", "jh8ixeIyhJw");
+                                }else if ("2".equals(whichWorkout) || "2".equals(whichWorkoutQR)){
+                                    stuffToGrab.putString("videoKey12", "_BnnyuO1QpY");
+                                }else if ("3".equals(whichWorkout) || "3".equals(whichWorkoutQR)){
+                                    stuffToGrab.putString("videoKey12", "VYQdWftVWNY");
+                                }
+                                /*String videoKey1 = jsonResponse.getString("videoKey");
                                 stuffToGrab.putString("videoKey12", videoKey1);
-                                //AlertDialog.Builder builder = new AlertDialog.Builder(QRChoices.this);
-                                //builder.setMessage (setKey.YOUTUBE_VIDEO_ID).show();
+                                AlertDialog.Builder builder = new AlertDialog.Builder(QRChoices.this);
+                                builder.setMessage (videoKey1).show();*/
                                 startActivity(new Intent(QRChoices.this, VideoPage.class));
                             } else {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(QRChoices.this);
