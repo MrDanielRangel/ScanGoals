@@ -36,7 +36,7 @@ public class mainMenu extends AppCompatActivity {
 
         btnQR.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                startActivity(new Intent(mainMenu.this, CheckForUserPermission.class));
+                startActivity(new Intent(mainMenu.this, QRScanner.class));
             }
         });
         btnJournal.setOnClickListener(new View.OnClickListener(){
