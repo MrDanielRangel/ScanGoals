@@ -17,6 +17,7 @@ import org.json.JSONObject;
 
 
 public class InputActivity extends AppCompatActivity {
+    // have a submite and back button
     Button btnSubmit;
     Button btnBack;
     EditText editTxt;
@@ -30,14 +31,14 @@ public class InputActivity extends AppCompatActivity {
         editTxt = (EditText) findViewById(R.id.editText);
         btnSubmit = (Button) findViewById(R.id.submitButton);
         btnBack = (Button) findViewById(R.id.backButton);
-
+        // goes back
         btnBack.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 startActivity(new Intent(InputActivity.this, mainMenu.class));
             }
         });
 
-
+        // when this is pressed checks with the data base to see if user entered right code
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,9 +56,7 @@ public class InputActivity extends AppCompatActivity {
                                 String code = jsonResponse.getString("userInput");
                                 stuffToGrab1.putString("userInput1", code);
                                 startActivity(new Intent(InputActivity.this, QRChoices.class));
-                                //Intent intent = new Intent(LoginActivity.this, mainMenu.class);
-                                //intent.putExtra("username", username);
-                                //LoginActivity.this.startActivity(intent);
+
                             } else {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(InputActivity.this);
                                 builder.setMessage("Wrong Input")

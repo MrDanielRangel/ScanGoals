@@ -17,10 +17,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Treadmill extends AppCompatActivity {
-
+    // buttons
     private Button submitBtn;
     private Button backBtn;
+    // takes in the user input
     private EditText userInputTxt;
+    // finds out what the user name is
     public String username = LoginActivity.stuffToGrab.getString("username");
 
     @Override
@@ -29,13 +31,14 @@ public class Treadmill extends AppCompatActivity {
         setContentView(R.layout.activity_treadmill);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        // if they press back button the go back to main menu
         backBtn = (Button) findViewById(R.id.backBtn);
         backBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 startActivity(new Intent(Treadmill.this, mainMenu.class));
             }
         });
+        // allow them to edit text
         userInputTxt = (EditText) findViewById(R.id.userInputTxt);
         submitBtn = (Button) findViewById(R.id.submitBtn);
         submitBtn.setOnClickListener(new View.OnClickListener() {
@@ -47,7 +50,7 @@ public class Treadmill extends AppCompatActivity {
                 Response.Listener<String> responseListener = new Response.Listener<String>(){
                     @Override
                     public void onResponse(String response) {
-
+                        // stores the log to user profile
                         try {
                             JSONObject jsonResponse = new JSONObject(response);
                             boolean success = jsonResponse.getBoolean("success");

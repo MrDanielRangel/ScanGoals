@@ -17,7 +17,6 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
@@ -25,18 +24,21 @@ import com.google.android.gms.vision.CameraSource;
 import com.google.android.gms.vision.Detector;
 import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.gms.vision.barcode.BarcodeDetector;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.IOException;
 
 public class QRScanner extends AppCompatActivity {
+    // buttons for qr
     private Button btnBackQR;
     private Button btnSubmit;
+    // where the qr will be
     private SurfaceView cameraView;
+    // shows what got scanded
     private TextView barcodeInfo;
+    // for detecting the qr
     private BarcodeDetector barcodeDetector;
+    // for camera
     private CameraSource cameraSource;
     public static final int MY_PERMISSIONS_REQUEST_CAMERA = 100;
     public Activity thisAct = this;
@@ -50,8 +52,7 @@ public class QRScanner extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // Here, thisActivity is the current activity
-
+        // set the camera to the slot and display it to user
         setContentView(R.layout.content_qrscanner);
         cameraView = (SurfaceView)findViewById(R.id.camera_view);
         barcodeInfo = (TextView)findViewById(R.id.code_info);
@@ -69,7 +70,7 @@ public class QRScanner extends AppCompatActivity {
             @Override
             public void surfaceCreated(SurfaceHolder holder) {
                 try{
-                    // Here, thisActivity is the current activity
+                    // allows access to camera and make it set the field that is set for the camera
                     if (ContextCompat.checkSelfPermission(thisAct, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                         if (ActivityCompat.shouldShowRequestPermissionRationale(thisAct, Manifest.permission.CAMERA)) {
 
@@ -89,15 +90,17 @@ public class QRScanner extends AppCompatActivity {
                     Log.e("CAMERA SOURCE", ie.getMessage());
                 }
             }
+            // if the surface was changed
             @Override
             public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+                // go back
                 btnBackQR = (Button) findViewById(R.id.btnBackQR);
                 btnBackQR.setOnClickListener(new View.OnClickListener(){
                     public void onClick(View v){
                         startActivity(new Intent(QRScanner.this, mainMenu.class));
                     }
                 });
-
+                // this butten check to see if the qr code is the correct one
                 btnSubmit = (Button) findViewById(R.id.submitButton);
                 btnSubmit.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -109,6 +112,7 @@ public class QRScanner extends AppCompatActivity {
                             @Override
                             public void onResponse(String response) {
                                 try {
+                                    // checks data base to see if it was correct
                                     JSONObject jsonResponse = new JSONObject(response);
                                     boolean success = jsonResponse.getBoolean("success");
 
@@ -117,6 +121,7 @@ public class QRScanner extends AppCompatActivity {
                                         stuffToGrab2.putString("userInput2", code);
                                         startActivity(new Intent(QRScanner.this, QRChoices.class));
                                     } else {
+                                        // if it is a wrong code
                                         AlertDialog.Builder builder = new AlertDialog.Builder(QRScanner.this);
                                         builder.setMessage("Wrong QR code")
                                                 .setNegativeButton("Retry", null)
@@ -135,7 +140,7 @@ public class QRScanner extends AppCompatActivity {
                     }
                 });
             }
-
+            // stop using camera
             @Override
             public void surfaceDestroyed(SurfaceHolder holder) {
                 cameraSource.stop();
@@ -145,7 +150,7 @@ public class QRScanner extends AppCompatActivity {
             @Override
             public void release() {
             }
-
+            // this detects the barcode
             @Override
             public void receiveDetections(Detector.Detections<Barcode> detections) {
                 final SparseArray<Barcode> barcodes = detections.getDetectedItems();
@@ -155,12 +160,6 @@ public class QRScanner extends AppCompatActivity {
                             barcodeInfo.setText(    // Update the TextView
                                     barcodes.valueAt(0).displayValue
                             );
-
-                            /*AlertDialog.Builder builder = new AlertDialog.Builder(QRScanner.this);
-                            builder.setMessage(barcodes.valueAt(0).displayValue)
-                                    .setNegativeButton("Retry", null)
-                                    .create()
-                                    .show();*/
                         }
                     });
                 }
