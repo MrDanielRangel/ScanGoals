@@ -21,6 +21,8 @@ public class Treadmill extends AppCompatActivity {
     private Button submitBtn;
     private Button backBtn;
     private EditText userInputTxt;
+    private EditText userInputTxt2;
+    private EditText userInputTxt3;
     public String username = LoginActivity.stuffToGrab.getString("username");
 
     @Override
@@ -37,11 +39,19 @@ public class Treadmill extends AppCompatActivity {
             }
         });
         userInputTxt = (EditText) findViewById(R.id.userInputTxt);
+        userInputTxt2 = (EditText) findViewById(R.id.userInputTxt2);
+        userInputTxt3 = (EditText) findViewById(R.id.userInputTxt3);
         submitBtn = (Button) findViewById(R.id.submitBtn);
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+               /* final String userInput = "Speed: " + userInputTxt.getText().toString();
+                final String userInput2 = "Distance: " + userInputTxt2.getText().toString();
+                final String userInput3 = "Time: " + userInputTxt3.getText().toString();*/
                 final String userInput = userInputTxt.getText().toString();
+                final String userInput2 = userInputTxt2.getText().toString();
+                final String userInput3 = userInputTxt3.getText().toString();
+                final String lastInput = "Today I ran at " + userInput + "mph for " + userInput2 + " miles in " + userInput3 + " minutes.";
 
                 //create response listener
                 Response.Listener<String> responseListener = new Response.Listener<String>(){
@@ -68,7 +78,8 @@ public class Treadmill extends AppCompatActivity {
                 };
 
                 //create a request
-                LogToJournalRequest logToJournalRequest = new LogToJournalRequest(userInput, username, responseListener);
+               // LogToJournalRequest logToJournalRequest = new LogToJournalRequest(userInput, userInput2, userInput3, username, responseListener);
+                LogToJournalRequest logToJournalRequest = new LogToJournalRequest(lastInput, username, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(Treadmill.this);
                 queue.add(logToJournalRequest);
             }

@@ -21,12 +21,14 @@ public class Squat extends AppCompatActivity {
     private Button submitBtn;
     private Button backBtn;
     private EditText userInputTxt;
+    private EditText userInputTxt2;
+    private EditText userInputTxt3;
     public String username = LoginActivity.stuffToGrab.getString("username");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_treadmill);
+        setContentView(R.layout.activity_squat);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -37,11 +39,16 @@ public class Squat extends AppCompatActivity {
             }
         });
         userInputTxt = (EditText) findViewById(R.id.userInputTxt);
+        userInputTxt2 = (EditText) findViewById(R.id.userInputTxt2);
+        userInputTxt3 = (EditText) findViewById(R.id.userInputTxt3);
         submitBtn = (Button) findViewById(R.id.submitBtn);
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final String userInput = userInputTxt.getText().toString();
+                final String userInput2 = userInputTxt2.getText().toString();
+                final String userInput3 = userInputTxt3.getText().toString();
+                final String lastInput = "Today I squatted "+ userInput + "lbs, doing " + userInput3 + " sets of " + userInput2 + " reps.";
 
                 //create response listener
                 Response.Listener<String> responseListener = new Response.Listener<String>(){
@@ -68,7 +75,8 @@ public class Squat extends AppCompatActivity {
                 };
 
                 //create a request
-                LogToJournalRequest logToJournalRequest = new LogToJournalRequest(userInput, username, responseListener);
+               // LogToJournalRequest logToJournalRequest = new LogToJournalRequest(userInput, username, responseListener);
+                LogToJournalRequest logToJournalRequest = new LogToJournalRequest(lastInput, username, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(Squat.this);
                 queue.add(logToJournalRequest);
             }

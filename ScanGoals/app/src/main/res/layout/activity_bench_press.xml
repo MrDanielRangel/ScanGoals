@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context="com.example.alex.scangoals.BenchPress">
+    android:layout_height="match_parent"
+    tools:context="com.example.alex.scangoals.BenchPress">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -20,7 +21,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include android:id="@+id/include3" layout="@layout/content_bench_press"/>
+    <include layout="@layout/content_bench_press" android:id="@+id/include3" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -37,7 +38,7 @@
             android:layout_marginTop="58dp" />
 
         <Button
-            android:id="@+id/sumbitBtn"
+            android:id="@+id/submitBtn"
             android:layout_width="253dp"
             android:layout_height="61dp"
             android:layout_column="0"
@@ -52,18 +53,45 @@
         <EditText
             android:id="@+id/userInputTxt"
             android:layout_width="380dp"
-            android:layout_height="200dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_column="0"
-            android:layout_marginTop="151dp"
-            android:layout_row="0"
-            android:layout_weight="0.04"
+            android:layout_height="100dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/backBtn"
+            android:layout_marginTop="52dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Enter workout here"
-            tools:layout_editor_absoluteX="79dp"
-            tools:layout_editor_absoluteY="187dp" />
+            android:selectAllOnFocus="true"
+            android:text="Weight"
+            tools:layout_editor_absoluteX="77dp"
+            tools:layout_editor_absoluteY="133dp" />
+
+        <EditText
+            android:id="@+id/userInputTxt2"
+            android:layout_width="380dp"
+            android:layout_height="100dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/userInputTxt"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:selectAllOnFocus="true"
+            android:text="Number of Reps"
+            tools:layout_editor_absoluteX="77dp"
+            tools:layout_editor_absoluteY="133dp" />
+
+        <EditText
+            android:id="@+id/userInputTxt3"
+            android:layout_width="380dp"
+            android:layout_height="100dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/userInputTxt2"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:selectAllOnFocus="true"
+            android:text="Number of Sets"
+            tools:layout_editor_absoluteX="77dp"
+            tools:layout_editor_absoluteY="133dp" />
     </RelativeLayout>
 
 
