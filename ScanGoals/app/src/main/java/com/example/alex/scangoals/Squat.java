@@ -22,12 +22,9 @@ public class Squat extends AppCompatActivity {
     private Button backBtn;
     // takes in the user input
     private EditText userInputTxt;
-<<<<<<< HEAD
     private EditText userInputTxt2;
     private EditText userInputTxt3;
-=======
     // finds out what the user name is
->>>>>>> ba8c2f22ccf601009feddcce9cb01731da318048
     public String username = LoginActivity.stuffToGrab.getString("username");
 
     @Override
