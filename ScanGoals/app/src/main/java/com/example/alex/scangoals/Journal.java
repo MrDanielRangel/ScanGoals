@@ -30,7 +30,7 @@ public class Journal extends AppCompatActivity {
         setContentView(R.layout.activity_journal);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        // goes back
         btnBackJR = (Button) findViewById(R.id.btnBackJR);
         btnBackJR.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -39,6 +39,7 @@ public class Journal extends AppCompatActivity {
         });
         journalDisplay = (TextView) findViewById(R.id.journalDisplay);
         refreshBtn = (Button) findViewById(R.id.RefreshBtn);
+        // when pressed loads the journals from the data base
         refreshBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
