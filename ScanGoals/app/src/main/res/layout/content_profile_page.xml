@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.alex.scangoals.ProfilePage"
+    tools:showIn="@layout/activity_profile_page"
+    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteX="0dp">
+
+    <ImageView
+        android:id="@+id/imgView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"
+        android:adjustViewBounds="false"
+        android:background="@drawable/placeholder"
+        app:layout_constraintBottom_toTopOf="@+id/btnChangePicture"
+        app:layout_constraintLeft_toLeftOf="@+id/btnChangePicture"
+        app:layout_constraintRight_toRightOf="@+id/btnChangePicture"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/gallery_thumb"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/btnChangePicture"
+        android:layout_alignStart="@+id/btnChangePicture" />
+
+    <Button
+        android:id="@+id/btnChangePicture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change Picture"
+        android:visibility="visible"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/boxName"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_below="@+id/imgView"
+        android:layout_alignLeft="@+id/boxWeight"
+        android:layout_alignStart="@+id/boxWeight" />
+
+    <EditText
+        android:id="@+id/boxWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Weight"
+        android:inputType="number"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/boxHeight"
+        android:layout_marginStart="16dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="16dp"
+        android:layout_below="@+id/boxHeight"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/boxHeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/boxName"
+        android:layout_alignStart="@+id/boxName"
+        android:layout_below="@+id/boxName"
+        android:ems="10"
+        android:hint="Height"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/boxAge"
+        app:layout_constraintLeft_toLeftOf="@+id/boxWeight"
+        app:layout_constraintRight_toRightOf="@+id/boxWeight"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1" />
+
+    <EditText
+        android:id="@+id/boxAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Age"
+        android:inputType="date"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="@+id/boxHeight"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/boxHeight"
+        android:layout_below="@+id/boxWeight"
+        android:layout_alignLeft="@+id/boxWeight"
+        android:layout_alignStart="@+id/boxWeight" />
+
+    <EditText
+        android:id="@+id/boxName"
+        style="@style/Widget.AppCompat.EditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/boxWeight"
+        app:layout_constraintRight_toRightOf="@+id/boxWeight"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/boxWeight"
+        android:layout_below="@+id/btnChangePicture"
+        android:layout_alignLeft="@+id/btnChangePicture"
+        android:layout_alignStart="@+id/btnChangePicture" />
+
+    <TextView
+        android:id="@+id/lbsDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="(lbs)"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/boxWeight"
+        android:layout_alignBottom="@+id/boxWeight"
+        android:layout_alignRight="@+id/boxWeight"
+        android:layout_alignEnd="@+id/boxWeight" />
+
+    <TextView
+        android:id="@+id/ftDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="(ft)"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/boxHeight"
+        android:layout_alignBottom="@+id/boxHeight"
+        android:layout_alignRight="@+id/boxHeight"
+        android:layout_alignEnd="@+id/boxHeight" />
+
+    <TextView
+        android:id="@+id/yearsDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="(years)"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/boxAge"
+        android:layout_alignBottom="@+id/boxAge"
+        android:layout_alignRight="@+id/boxAge"
+        android:layout_alignEnd="@+id/boxAge" />
+
+</RelativeLayout>
