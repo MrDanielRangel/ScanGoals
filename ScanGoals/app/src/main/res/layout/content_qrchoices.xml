@@ -14,8 +14,9 @@
 
     <Button
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:text="See video"
+        android:background="@drawable/button"
         android:id="@+id/btnVideo"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -24,8 +25,9 @@
 
     <Button
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:text="Log to Journal"
+        android:background="@drawable/button"
         android:id="@+id/btnLogJR"
         android:layout_below="@+id/btnVideo"
         android:layout_alignRight="@+id/btnVideo"
@@ -34,9 +36,10 @@
         android:textStyle="bold" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
         android:text="Back"
+        android:background="@drawable/button"
         android:id="@+id/btnBackCH"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"

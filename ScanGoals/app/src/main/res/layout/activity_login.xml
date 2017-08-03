@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
     tools:context="com.example.alex.scangoals.LoginActivity"
     tools:layout_editor_absoluteY="81dp"
     tools:layout_editor_absoluteX="0dp">
@@ -78,6 +79,7 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:text="Login"
+            android:background="@drawable/button"
             tools:layout_editor_absoluteX="135dp"
             tools:layout_editor_absoluteY="181dp" />
 
@@ -89,7 +91,8 @@
             android:layout_alignStart="@+id/bLogin"
             android:layout_below="@+id/bLogin"
             android:layout_marginTop="11dp"
-            android:text="Register" />
+            android:text="Register"
+            android:background="@drawable/button"/>
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

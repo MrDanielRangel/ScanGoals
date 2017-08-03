@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
     tools:context="com.example.alex.scangoals.Register">
 
     <RelativeLayout
@@ -24,7 +25,8 @@
             android:layout_below="@+id/etPassword"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="47dp"
-            android:text="Register" />
+            android:text="Register"
+            android:background="@drawable/button"/>
 
         <EditText
             android:id="@+id/etUsername"

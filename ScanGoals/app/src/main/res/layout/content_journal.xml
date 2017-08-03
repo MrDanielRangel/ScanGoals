@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:background="@color/backgroundColor">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,9 +19,10 @@
 
         <Button
             android:id="@+id/RefreshBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
             android:text="Load Entrys"
+            android:background="@drawable/button"
             android:textStyle="bold"
             android:layout_alignBaseline="@+id/btnBackJR"
             android:layout_alignBottom="@+id/btnBackJR"
@@ -29,13 +31,14 @@
 
         <Button
             android:id="@+id/btnBackJR"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
 
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="false"
             android:text="Back"
+            android:background="@drawable/button"
             android:textStyle="bold" />
 
         <TextView

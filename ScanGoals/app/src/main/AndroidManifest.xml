@@ -35,14 +35,18 @@
             android:name=".VideoPage"
             android:label="@string/title_activity_video_page"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".LoginActivity"
+            android:label="LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Register" />
+        <activity android:name=".Register"
+            android:label="Register"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".InputActivity"
             android:label="Input"

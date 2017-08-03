@@ -5,8 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
     tools:context="com.example.alex.scangoals.BenchPress">
-
+<!--
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,7 +20,7 @@
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
-    </android.support.design.widget.AppBarLayout>
+    </android.support.design.widget.AppBarLayout>-->
 
     <include layout="@layout/content_bench_press" android:id="@+id/include3" />
 
@@ -32,6 +33,7 @@
             android:layout_width="150dp"
             android:layout_height="40dp"
             android:text="Back"
+            android:background="@drawable/button"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
@@ -44,6 +46,7 @@
             android:layout_column="0"
             android:layout_row="25"
             android:text="Submit"
+            android:background="@drawable/button"
             tools:layout_editor_absoluteX="79dp"
             tools:layout_editor_absoluteY="526dp"
             android:layout_alignParentBottom="true"
