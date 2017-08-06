@@ -25,8 +25,7 @@ public class ProfilePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_page);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
         /*ImageView imgView = (ImageView) findViewById(R.id.imgView);
         imgView.setImageResource(R.drawable.placeholder);
 

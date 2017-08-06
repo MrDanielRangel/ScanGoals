@@ -32,8 +32,7 @@ public class QRChoices extends AppCompatActivity {
         // set the view
         setContentView(R.layout.activity_qrchoices);
         // grab toolbar
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
 
         // when log button has been pressed
         btnLogJR = (Button) findViewById(R.id.btnLogJR);

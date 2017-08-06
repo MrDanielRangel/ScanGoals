@@ -20,8 +20,7 @@ public class mainMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
         // for the buttons
         btnQR = (Button) findViewById(R.id.btnQR);
         btnJournal = (Button) findViewById(R.id.btnJournal);
