@@ -37,7 +37,8 @@
             android:layout_marginTop="43dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Username" />
+            android:text="Username"
+            android:textColor="@android:color/white"/>
 
         <EditText
             android:id="@+id/etPassword"
@@ -49,6 +50,7 @@
             android:layout_marginTop="30dp"
             android:ems="10"
             android:inputType="textPassword"
-            android:text="Password" />
+            android:text="Password"
+            android:textColor="@android:color/white"/>
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

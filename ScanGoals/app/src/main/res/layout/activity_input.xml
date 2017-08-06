@@ -23,6 +23,7 @@
         android:inputType="text"
         android:selectAllOnFocus="true"
         android:text="Enter Code"
+        android:textColor="@android:color/white"
         android:textAlignment="center" />
 
     <Button
