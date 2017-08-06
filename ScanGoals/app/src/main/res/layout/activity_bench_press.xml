@@ -65,6 +65,7 @@
             android:inputType="textPersonName"
             android:selectAllOnFocus="true"
             android:text="Weight"
+            android:textColor="@android:color/white"
             tools:layout_editor_absoluteX="77dp"
             tools:layout_editor_absoluteY="133dp" />
 
@@ -79,6 +80,7 @@
             android:inputType="textPersonName"
             android:selectAllOnFocus="true"
             android:text="Number of Reps"
+            android:textColor="@android:color/white"
             tools:layout_editor_absoluteX="77dp"
             tools:layout_editor_absoluteY="133dp" />
 
@@ -93,6 +95,7 @@
             android:inputType="textPersonName"
             android:selectAllOnFocus="true"
             android:text="Number of Sets"
+            android:textColor="@android:color/white"
             tools:layout_editor_absoluteX="77dp"
             tools:layout_editor_absoluteY="133dp" />
     </RelativeLayout>

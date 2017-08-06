@@ -48,6 +48,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="21dp"
         android:text="Nothing to read."
+        android:textColor="@android:color/white"
         android:textSize="20sp" />
 
 </RelativeLayout>

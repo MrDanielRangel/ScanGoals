@@ -25,6 +25,7 @@
             android:layout_toLeftOf="@+id/etPassword"
             android:layout_toStartOf="@+id/etPassword"
             android:text="Password"
+            android:textColor="@android:color/white"
             tools:layout_editor_absoluteX="38dp"
             tools:layout_editor_absoluteY="119dp" />
 
@@ -41,6 +42,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Username"
+            android:textColor="@android:color/white"
             tools:layout_editor_absoluteX="111dp"
             tools:layout_editor_absoluteY="65dp"
             tools:text="" />
@@ -56,6 +58,7 @@
             android:ems="10"
             android:inputType="textPassword"
             android:text="Password"
+            android:textColor="@android:color/white"
             tools:layout_editor_absoluteX="111dp"
             tools:layout_editor_absoluteY="100dp"
             tools:text="" />
@@ -69,6 +72,7 @@
             android:layout_alignEnd="@+id/textView6"
             android:layout_alignRight="@+id/textView6"
             android:text="Username"
+            android:textColor="@android:color/white"
             tools:layout_editor_absoluteX="38dp"
             tools:layout_editor_absoluteY="83dp" />
 
