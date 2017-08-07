@@ -4,6 +4,7 @@ import android.*;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -11,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -34,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
         final EditText etPassword = (EditText) findViewById(R.id.etPassword);
         final Button bLogin = (Button) findViewById(R.id.bLogin);
         final Button registerBtn = (Button) findViewById(R.id.registerBtn);
+        final ImageView myImage = (ImageView) findViewById(R.id.myImage);
 
         //whenever user click the register link, then will redirect user to register page
         registerBtn.setOnClickListener(new View.OnClickListener() {
