@@ -64,8 +64,8 @@
             android:label="@string/title_activity_squat"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".CheckForUserPermission"
-            android:label="@string/title_activity_check_for_user_permission"
+            android:name=".ProfilePage"
+            android:label="Profile"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

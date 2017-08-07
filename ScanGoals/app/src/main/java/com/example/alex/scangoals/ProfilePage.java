@@ -26,38 +26,16 @@ public class ProfilePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_page);
 
-        /*ImageView imgView = (ImageView) findViewById(R.id.imgView);
+        ImageView imgView = (ImageView) findViewById(R.id.imgView);
         imgView.setImageResource(R.drawable.placeholder);
 
-        /*final Button btnChangePicture = (Button) findViewById(R.id.btnChangePicture);
+        final Button btnChangePicture = (Button) findViewById(R.id.btnChangePicture);
         final EditText boxName = (EditText) findViewById(R.id.boxName);
         final EditText boxWeight = (EditText) findViewById(R.id.boxWeight);
         final EditText boxHeight = (EditText) findViewById(R.id.boxHeight);
         final EditText boxAge = (EditText) findViewById(R.id.boxAge);
-        //Intent intent= getIntent();
-        //TextView lbsDisplay = (TextView) findViewById((R.id.lbsDisplay));
 
-        boxWeight.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if(!s.toString().contains(" lbs")){
-                    boxWeight.append(" lbs");
-                    Selection.setSelection(boxWeight.getText(), boxWeight.getText().length());
-                }
-            }
-
-        });
-/*
+/*      //Not sure what this code was supposed to be... -CW
         final String name = boxName.getText().toString();
         final String height = boxHeight.getText().toString();
         final String weight = boxWeight.getText().toString();

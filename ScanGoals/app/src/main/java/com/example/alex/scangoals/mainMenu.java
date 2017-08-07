@@ -13,7 +13,7 @@ public class mainMenu extends AppCompatActivity {
     private Button btnJournal;
     private Button btnInput;
     private Button btnLogout;
-
+    private Button btnProfile;
 
 
     @Override
@@ -26,6 +26,7 @@ public class mainMenu extends AppCompatActivity {
         btnJournal = (Button) findViewById(R.id.btnJournal);
         btnInput = (Button) findViewById(R.id.btnInput);
         btnLogout = (Button) findViewById(R.id.logOutBtn);
+        btnProfile = (Button) findViewById(R.id.btnProfile);
         // move on to qr scanner
         btnQR.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -42,6 +43,12 @@ public class mainMenu extends AppCompatActivity {
         btnInput.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 startActivity(new Intent(mainMenu.this, InputActivity.class));
+            }
+        });
+        //profile
+        btnProfile.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                startActivity(new Intent(mainMenu.this, ProfilePage.class));
             }
         });
         // move on to login
