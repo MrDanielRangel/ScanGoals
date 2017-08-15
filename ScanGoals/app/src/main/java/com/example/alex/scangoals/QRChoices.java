@@ -3,6 +3,8 @@ package com.example.alex.scangoals;
 import android.content.Intent;
 import android.os.Bundle;
 import android.renderscript.ScriptGroup;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -14,7 +16,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class QRChoices extends AppCompatActivity {
+public class QRChoices extends mainMenu {
     // butons for the qr choices
     private Button btnLogJR;
     private Button btnBackCH;
@@ -33,7 +35,12 @@ public class QRChoices extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         // set the view
         setContentView(R.layout.activity_qrchoices);
-        // grab toolbar
+
+        //init nav drawer
+        NavigationView nvDrawer = (NavigationView) findViewById(R.id.nvView);
+        setupDrawerContent(nvDrawer);
+        DrawerLayout mDrawer=(DrawerLayout) findViewById(R.id.drawer_layout);
+
         InputActivity.stuffToGrab1.putString("userInput1", "0");
         QRScanner.stuffToGrab2.putString("userInput2", "0");
 

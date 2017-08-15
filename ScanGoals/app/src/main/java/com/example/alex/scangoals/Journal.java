@@ -3,6 +3,8 @@ package com.example.alex.scangoals;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -17,7 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-public class Journal extends AppCompatActivity {
+public class Journal extends mainMenu {
 
     private Button btnBackJR;
     private Button refreshBtn;
@@ -28,6 +30,12 @@ public class Journal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_journal);
+
+        //init nav drawer
+        NavigationView nvDrawer = (NavigationView) findViewById(R.id.nvView);
+        setupDrawerContent(nvDrawer);
+        DrawerLayout mDrawer=(DrawerLayout) findViewById(R.id.drawer_layout);
+
         // goes back
         btnBackJR = (Button) findViewById(R.id.btnBackJR);
         btnBackJR.setOnClickListener(new View.OnClickListener(){

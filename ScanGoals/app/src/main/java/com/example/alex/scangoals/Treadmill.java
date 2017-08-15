@@ -2,6 +2,8 @@ package com.example.alex.scangoals;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -16,7 +18,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Treadmill extends AppCompatActivity {
+public class Treadmill extends mainMenu {
     // buttons
     private Button submitBtn;
     private Button backBtn;
@@ -32,6 +34,10 @@ public class Treadmill extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_treadmill);
+        //init nav drawer
+        NavigationView nvDrawer = (NavigationView) findViewById(R.id.nvView);
+        setupDrawerContent(nvDrawer);
+        DrawerLayout mDrawer=(DrawerLayout) findViewById(R.id.drawer_layout);
         
         // if they press back button the go back to main menu
         backBtn = (Button) findViewById(R.id.backBtn);

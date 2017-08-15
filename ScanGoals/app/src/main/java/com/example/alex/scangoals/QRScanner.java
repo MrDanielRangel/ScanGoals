@@ -6,8 +6,10 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -28,7 +30,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.IOException;
 
-public class QRScanner extends AppCompatActivity {
+public class QRScanner extends mainMenu {
     // buttons for qr
     private Button btnBackQR;
     private Button btnSubmit;
@@ -49,10 +51,8 @@ public class QRScanner extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qrscanner);
-
-
         // set the camera to the slot and display it to user
-        setContentView(R.layout.content_qrscanner);
+
         cameraView = (SurfaceView)findViewById(R.id.camera_view);
         barcodeInfo = (TextView)findViewById(R.id.code_info);
         barcodeDetector =
@@ -63,6 +63,10 @@ public class QRScanner extends AppCompatActivity {
                 .Builder(this, barcodeDetector)
                 .setRequestedPreviewSize(640,300)
                 .build();
+        //init nav drawer
+        NavigationView nvDrawer = (NavigationView) findViewById(R.id.nvView);
+        setupDrawerContent(nvDrawer);
+        DrawerLayout mDrawer=(DrawerLayout) findViewById(R.id.drawer_layout);
 
         cameraView.getHolder().addCallback(new SurfaceHolder.Callback() {
 
