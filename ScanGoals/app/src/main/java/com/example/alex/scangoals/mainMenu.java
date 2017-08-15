@@ -1,6 +1,7 @@
 package com.example.alex.scangoals;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class mainMenu extends AppCompatActivity {
     // buttons to move on to the next activates
@@ -21,6 +23,7 @@ public class mainMenu extends AppCompatActivity {
     private Button btnInput;
     private Button btnLogout;
     private Button btnProfile;
+    public ImageButton navButton;
 
 
     private DrawerLayout mDrawer;
@@ -41,6 +44,12 @@ public class mainMenu extends AppCompatActivity {
         nvDrawer = (NavigationView) findViewById(R.id.nvView);
         setupDrawerContent(nvDrawer);
         mDrawer=(DrawerLayout) findViewById(R.id.drawer_layout);
+        navButton=(ImageButton) findViewById(R.id.navButton);
+        navButton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                mDrawer.openDrawer(GravityCompat.START);
+            }
+        });
 
 
 

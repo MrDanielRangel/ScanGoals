@@ -3,6 +3,7 @@ package com.example.alex.scangoals;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +11,9 @@ import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.Selection;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.EditText;
 
@@ -31,7 +34,13 @@ public class ProfilePage extends mainMenu {
         //init nav drawer
         NavigationView nvDrawer = (NavigationView) findViewById(R.id.nvView);
         setupDrawerContent(nvDrawer);
-        DrawerLayout mDrawer=(DrawerLayout) findViewById(R.id.drawer_layout);
+        final DrawerLayout mDrawer=(DrawerLayout) findViewById(R.id.drawer_layout);
+        ImageButton navButton=(ImageButton) findViewById(R.id.navButton);
+        navButton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                mDrawer.openDrawer(GravityCompat.START);
+            }
+        });
 
         ImageView imgView = (ImageView) findViewById(R.id.imgView);
         imgView.setImageResource(R.drawable.placeholder);

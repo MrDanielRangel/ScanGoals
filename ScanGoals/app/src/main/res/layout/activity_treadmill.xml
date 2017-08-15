@@ -29,23 +29,20 @@
     </android.support.design.widget.AppBarLayout>-->
 
     <include layout="@layout/content_treadmill" android:id="@+id/include2"/>
+    <ImageButton
+        android:id="@+id/navButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        android:tint="@color/common_google_signin_btn_text_dark_default"
+        app:srcCompat="@drawable/ic_keyboard_arrow_left_white_24dp" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="551dp"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp">
-
-        <Button
-            android:id="@+id/backBtn"
-            android:layout_width="150dp"
-            android:layout_height="40dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="58dp"
-            android:text="Back"
-            android:background="@drawable/button"/>
 
         <Button
             android:id="@+id/submitBtn"

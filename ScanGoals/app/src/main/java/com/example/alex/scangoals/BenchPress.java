@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -19,7 +20,6 @@ import org.json.JSONObject;
 public class BenchPress extends AppCompatActivity {
     // buttons
     private Button submitBtn;
-    private Button backBtn;
     // takes in the user input
     private EditText userInputTxt;
     private EditText userInputTxt2;
@@ -32,13 +32,6 @@ public class BenchPress extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bench_press);
 
-        // if they press back button the go back to main menu
-        backBtn = (Button) findViewById(R.id.backBtn);
-        backBtn.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                startActivity(new Intent(BenchPress.this, mainMenu.class));
-            }
-        });
         // allow them to edit text
         userInputTxt = (EditText) findViewById(R.id.userInputTxt);
         userInputTxt2 = (EditText) findViewById(R.id.userInputTxt2);
