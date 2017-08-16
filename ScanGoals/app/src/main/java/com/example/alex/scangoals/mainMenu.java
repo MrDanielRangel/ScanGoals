@@ -1,16 +1,11 @@
 package com.example.alex.scangoals;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -126,6 +121,12 @@ public class mainMenu extends AppCompatActivity {
                 break;
             case R.id.nav_logout:
                 startActivity(new Intent(mainMenu.this, LoginActivity.class));
+                break;
+            case R.id.nav_mainmenu:
+                startActivity(new Intent(mainMenu.this, mainMenu.class));
+                break;
+            case R.id.nav_input:
+                startActivity(new Intent(mainMenu.this, InputActivity.class));
                 break;
             default:
                 //fragmentClass = FirstFragment.class;

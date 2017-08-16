@@ -3,8 +3,14 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_mainmenu"
+            android:title="Main Menu"/>
+        <item
             android:id="@+id/nav_QRScan"
             android:title="Scan Code" />
+        <item
+            android:id="@+id/nav_input"
+            android:title="Input Code"/>
         <item
             android:id="@+id/nav_journal"
             android:title="Journal" />
