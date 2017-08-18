@@ -3,14 +3,10 @@ package com.example.alex.scangoals;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
@@ -21,8 +17,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-public class Journal extends mainMenu {
+public class Journal extends AppCompatActivity {
 
+    private Button btnBackJR;
     private Button refreshBtn;
     private TextView journalDisplay;
     public String username = LoginActivity.stuffToGrab.getString("username");
@@ -31,18 +28,13 @@ public class Journal extends mainMenu {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_journal);
-
-        //init nav drawer
-        NavigationView nvDrawer = (NavigationView) findViewById(R.id.nvView);
-        setupDrawerContent(nvDrawer);
-        final DrawerLayout mDrawer=(DrawerLayout) findViewById(R.id.drawer_layout);
-        ImageButton navButton=(ImageButton) findViewById(R.id.navButton);
-        navButton.setOnClickListener(new View.OnClickListener(){
+        // goes back
+        btnBackJR = (Button) findViewById(R.id.btnBackJR);
+        btnBackJR.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                mDrawer.openDrawer(GravityCompat.START);
+                startActivity(new Intent(Journal.this, mainMenu.class));
             }
         });
-
         journalDisplay = (TextView) findViewById(R.id.journalDisplay);
         refreshBtn = (Button) findViewById(R.id.RefreshBtn);
         // when pressed loads the journals from the data base

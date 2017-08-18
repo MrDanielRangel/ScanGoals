@@ -3,14 +3,10 @@ package com.example.alex.scangoals;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -20,9 +16,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-public class InputActivity extends mainMenu {
+public class InputActivity extends AppCompatActivity {
     // have a submite and back button
     Button btnSubmit;
+    Button btnBack;
     EditText editTxt;
     public static Bundle stuffToGrab1 = new Bundle();
 
@@ -33,17 +30,13 @@ public class InputActivity extends mainMenu {
 
         editTxt = (EditText) findViewById(R.id.editText);
         btnSubmit = (Button) findViewById(R.id.submitButton);
-        //init nav drawer
-        NavigationView nvDrawer = (NavigationView) findViewById(R.id.nvView);
-        setupDrawerContent(nvDrawer);
-        final DrawerLayout mDrawer=(DrawerLayout) findViewById(R.id.drawer_layout);
-        ImageButton navButton=(ImageButton) findViewById(R.id.navButton);
-        navButton.setOnClickListener(new View.OnClickListener(){
+        btnBack = (Button) findViewById(R.id.backButton);
+        // goes back
+        btnBack.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                mDrawer.openDrawer(GravityCompat.START);
+                startActivity(new Intent(InputActivity.this, mainMenu.class));
             }
         });
-
 
         // when this is pressed checks with the data base to see if user entered right code
         btnSubmit.setOnClickListener(new View.OnClickListener() {

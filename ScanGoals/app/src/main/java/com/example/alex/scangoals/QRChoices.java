@@ -2,32 +2,26 @@ package com.example.alex.scangoals;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.renderscript.ScriptGroup;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
-
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class QRChoices extends mainMenu {
+public class QRChoices extends AppCompatActivity {
     // butons for the qr choices
     private Button btnLogJR;
+    private Button btnBackCH;
     private Button btnVideo;
     // a bundle so that we can grab information
     public static Bundle stuffToGrab = new Bundle();
     // This grabs which workout equipment the user scaned for
     private String whichWorkout =  InputActivity.stuffToGrab1.getString("userInput1");
-
     // Grabs qr choice
     private String whichWorkoutQR = QRScanner.stuffToGrab2.getString("userInput2");
 
@@ -37,20 +31,7 @@ public class QRChoices extends mainMenu {
         super.onCreate(savedInstanceState);
         // set the view
         setContentView(R.layout.activity_qrchoices);
-
-        //init nav drawer
-        NavigationView nvDrawer = (NavigationView) findViewById(R.id.nvView);
-        setupDrawerContent(nvDrawer);
-        final DrawerLayout mDrawer=(DrawerLayout) findViewById(R.id.drawer_layout);
-        ImageButton navButton=(ImageButton) findViewById(R.id.navButton);
-        navButton.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                mDrawer.openDrawer(GravityCompat.START);
-            }
-        });
-
-        InputActivity.stuffToGrab1.putString("userInput1", "0");
-        QRScanner.stuffToGrab2.putString("userInput2", "0");
+        // grab toolbar
 
 
         // when log button has been pressed
@@ -67,6 +48,13 @@ public class QRChoices extends mainMenu {
                 }
 
 
+            }
+        });
+        // if the back button is pressed go back to main menu
+        btnBackCH = (Button) findViewById(R.id.btnBackCH);
+        btnBackCH.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                startActivity(new Intent(QRChoices.this, mainMenu.class));
             }
         });
         // if the video button is pressed pull of the right video

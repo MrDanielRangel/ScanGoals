@@ -1,10 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.DrawerLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/drawer_layout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -29,18 +23,21 @@
     </android.support.design.widget.AppBarLayout>-->
 
     <include layout="@layout/content_bench_press" android:id="@+id/include3" />
-    <ImageButton
-        android:id="@+id/navButton"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:background="@android:color/transparent"
-        android:scaleType="fitXY"
-        android:tint="@color/common_google_signin_btn_text_dark_default"
-        app:srcCompat="@drawable/ic_keyboard_arrow_left_white_24dp" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/backBtn"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:text="Back"
+            android:background="@drawable/button"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="58dp" />
 
         <Button
             android:id="@+id/submitBtn"
@@ -105,11 +102,3 @@
 
 
 </android.support.design.widget.CoordinatorLayout>
-    <android.support.design.widget.NavigationView
-        android:id="@+id/nvView"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:background="@android:color/white"
-        app:menu="@menu/drawer_view" />
-</android.support.v4.widget.DrawerLayout>

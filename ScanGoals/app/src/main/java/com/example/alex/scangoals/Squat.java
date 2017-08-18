@@ -2,16 +2,12 @@ package com.example.alex.scangoals;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -20,9 +16,10 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Squat extends mainMenu {
+public class Squat extends AppCompatActivity {
     // buttons
     private Button submitBtn;
+    private Button backBtn;
     // takes in the user input
     private EditText userInputTxt;
     private EditText userInputTxt2;
@@ -35,17 +32,13 @@ public class Squat extends mainMenu {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_squat);
 
-        //init nav drawer
-        NavigationView nvDrawer = (NavigationView) findViewById(R.id.nvView);
-        setupDrawerContent(nvDrawer);
-        final DrawerLayout mDrawer=(DrawerLayout) findViewById(R.id.drawer_layout);
-        ImageButton navButton=(ImageButton) findViewById(R.id.navButton);
-        navButton.setOnClickListener(new View.OnClickListener(){
+        // if they press back button the go back to main menu
+        backBtn = (Button) findViewById(R.id.backBtn);
+        backBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                mDrawer.openDrawer(GravityCompat.START);
+                startActivity(new Intent(Squat.this, mainMenu.class));
             }
         });
-
         // allow them to edit text
         userInputTxt = (EditText) findViewById(R.id.userInputTxt);
         userInputTxt2 = (EditText) findViewById(R.id.userInputTxt2);

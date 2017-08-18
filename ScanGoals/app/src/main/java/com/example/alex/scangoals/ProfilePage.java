@@ -5,22 +5,9 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-<<<<<<< HEAD
 import android.support.v7.app.AppCompatActivity;
-=======
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.text.Editable;
-import android.text.Selection;
-import android.text.TextWatcher;
->>>>>>> 2924cb76e73b098849a3bcf47f6210143e02cf93
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.EditText;
 
@@ -30,7 +17,6 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-<<<<<<< HEAD
 import java.io.ByteArrayOutputStream;
 import android.util.Base64;
 import android.provider.MediaStore;
@@ -60,37 +46,17 @@ public class ProfilePage extends AppCompatActivity implements View.OnClickListen
     String name, weight, height, age;
     public static Bundle stuffy = new Bundle();
     public static Bitmap userimg;
-=======
-
-public class ProfilePage extends mainMenu {
->>>>>>> 2924cb76e73b098849a3bcf47f6210143e02cf93
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_page);
 
-<<<<<<< HEAD
         boxName = (EditText) findViewById(R.id.boxName);
         boxWeight = (EditText) findViewById(R.id.boxWeight);
         boxHeight = (EditText) findViewById(R.id.boxHeight);
         boxAge = (EditText) findViewById(R.id.boxAge);
         backButton = (Button) findViewById(R.id.bButton);
-=======
-        //init nav drawer
-        NavigationView nvDrawer = (NavigationView) findViewById(R.id.nvView);
-        setupDrawerContent(nvDrawer);
-        final DrawerLayout mDrawer=(DrawerLayout) findViewById(R.id.drawer_layout);
-        ImageButton navButton=(ImageButton) findViewById(R.id.navButton);
-        navButton.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                mDrawer.openDrawer(GravityCompat.START);
-            }
-        });
-
-        ImageView imgView = (ImageView) findViewById(R.id.imgView);
-        imgView.setImageResource(R.drawable.placeholder);
->>>>>>> 2924cb76e73b098849a3bcf47f6210143e02cf93
 
         btnBuscar = (Button) findViewById(R.id.btnBuscar);
         btnSubir = (Button) findViewById(R.id.btnSubir);
