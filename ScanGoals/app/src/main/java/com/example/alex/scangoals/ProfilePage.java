@@ -1,77 +1,215 @@
 package com.example.alex.scangoals;
 
+import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.text.Editable;
-import android.text.Selection;
-import android.text.TextWatcher;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.EditText;
 
-import com.android.volley.Response;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import java.io.ByteArrayOutputStream;
+import android.util.Base64;
+import android.provider.MediaStore;
+import java.io.IOException;
+import android.app.ProgressDialog;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.Request;
+import android.widget.Toast;
+import com.android.volley.VolleyError;
+import java.util.Hashtable;
+import com.android.volley.AuthFailureError;
+import java.util.Map;
+import java.lang.String;
 
-public class ProfilePage extends AppCompatActivity {
+public class ProfilePage extends AppCompatActivity implements View.OnClickListener{
+
+    private Button backButton, sButton;
+    private Button btnBuscar, btnSubir;
+    private ImageView imageView;
+    private Bitmap bitmap;
+    private int PICK_IMAGE_REQUEST = 1;
+    private String UPLOAD_URL = "https://camelbackspartans.com/scangoals/upload.php";
+    private String KEY_IMAGEN = "foto";
+
+    public String username = LoginActivity.stuffToGrab.getString("username");
+    public static EditText boxName, boxWeight, boxHeight, boxAge;
+    String name, weight, height, age;
+    public static Bundle stuffy = new Bundle();
+    public static Bitmap userimg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_page);
 
-        ImageView imgView = (ImageView) findViewById(R.id.imgView);
-        imgView.setImageResource(R.drawable.placeholder);
+        boxName = (EditText) findViewById(R.id.boxName);
+        boxWeight = (EditText) findViewById(R.id.boxWeight);
+        boxHeight = (EditText) findViewById(R.id.boxHeight);
+        boxAge = (EditText) findViewById(R.id.boxAge);
+        backButton = (Button) findViewById(R.id.bButton);
 
-        final Button btnChangePicture = (Button) findViewById(R.id.btnChangePicture);
-        final EditText boxName = (EditText) findViewById(R.id.boxName);
-        final EditText boxWeight = (EditText) findViewById(R.id.boxWeight);
-        final EditText boxHeight = (EditText) findViewById(R.id.boxHeight);
-        final EditText boxAge = (EditText) findViewById(R.id.boxAge);
+        btnBuscar = (Button) findViewById(R.id.btnBuscar);
+        btnSubir = (Button) findViewById(R.id.btnSubir);
+        imageView = (ImageView) findViewById(R.id.imageView);
 
-/*      //Not sure what this code was supposed to be... -CW
-        final String name = boxName.getText().toString();
-        final String height = boxHeight.getText().toString();
-        final String weight = boxWeight.getText().toString();
-        final String age = boxAge.getText().toString();
+        btnBuscar.setOnClickListener(this);
+        btnSubir.setOnClickListener(this);
 
-        //create response listener
-        Response.Listener<String> responseListener = new Response.Listener<String>(){
+        backButton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                startActivity(new Intent(ProfilePage.this, mainMenu.class));
+            }
+        });
+
+        boxName.setText(username);
+        imageView.setImageBitmap(userimg);
+        boxWeight.setText(stuffy.getString("weight"));
+        boxHeight.setText(stuffy.getString("height"));
+        boxAge.setText(stuffy.getString("age"));
+        
+
+    }
+
+    public String getStringImagen(Bitmap bmp){
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bmp.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] imageBytes = baos.toByteArray();
+        String encodedImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
+
+        return encodedImage;
+    }
+
+    private void showFileChooser() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        if(v == btnBuscar){
+            showFileChooser();
+        }
+
+        if(v == btnSubir){
+            uploadImage();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            Uri filePath = data.getData();
+            try {
+                //map of gallery
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
+                //Config image view
+                imageView.setImageBitmap(bitmap);
+                userimg = bitmap;
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void uploadImage(){
+        //Mostrar el diálogo de progreso
+        final ProgressDialog loading = ProgressDialog.show(this,"Uploading...","Wait a Sec...",false,false);
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, UPLOAD_URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String s) {
+                        //Descartar el diálogo de progreso
+                        loading.dismiss();
+                        //Mostrando el mensaje de la respuesta
+                        Toast.makeText(ProfilePage.this, s , Toast.LENGTH_LONG).show();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+                        //Descartar el diálogo de progreso
+                        loading.dismiss();
+
+                        //Showing toast
+                        Toast.makeText(ProfilePage.this, volleyError.getMessage().toString(), Toast.LENGTH_LONG).show();
+                    }
+                }){
             @Override
-            public void onResponse(String response) {
+            protected Map<String, String> getParams() throws AuthFailureError {
+                //Convertir bits a cadena
+                String imagen = getStringImagen(bitmap);
 
-                try {
-                    JSONObject jsonResponse = new JSONObject(response);
-                    boolean success = jsonResponse.getBoolean("success");
+                //Creación de parámetros
+                Map<String,String> params = new Hashtable<String, String>();
 
-                    if(success){
-                        Intent intent = new Intent(ProfilePage.this, LoginActivity.class);
-                        ProfilePage.this.startActivity(intent);
-                    }
-                    else{
-                        AlertDialog.Builder log = new AlertDialog.Builder(ProfilePage.this);
-                        log.setMessage("Something Went Wrong.").setNegativeButton("Retry", null).create().show();
-                    }
+                //Agregando de parámetros
+                params.put(KEY_IMAGEN, imagen);
+                params.put(username, username);
 
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
+                //Parámetros de retorno
+                return params;
             }
         };
 
-        //create a request
-        /*ProfileRequest pRequest = new ProfileRequest(name, height, weight, age, responseListener);
-        RequestQueue queue = Volley.newRequestQueue(ProfilePage.this);
-        queue.add(pRequest);*/
+        //Creación de una cola de solicitudes
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+
+        //Agregar solicitud a la cola
+        requestQueue.add(stringRequest);
+    }
+
+   public void updateProfile(View view)
+    {
+        name = boxName.getText().toString();
+        age = boxAge.getText().toString();
+        height = boxHeight.getText().toString();
+        weight = boxWeight.getText().toString();
+
+        String method = "profile";
+
+        stuffy.putString("age", age);
+        stuffy.putString("height", height);
+        stuffy.putString("weight", weight);
+
+
+        BackgroundTask bgTask = new BackgroundTask(this);
+        bgTask.execute(method, username, age, height, weight);
+
 
     }
+
+    /*public void showProfile(View view)
+    {
+        name = boxName.getText().toString();
+        age = boxAge.getText().toString();
+        height = boxHeight.getText().toString();
+        weight = boxWeight.getText().toString();
+
+        String method = "showProfile";
+
+        BackgroundTask bgTask = new BackgroundTask(this);
+        bgTask.execute(method, username, age, height, weight);
+
+    }
+    */
+
+
+
 
 }
