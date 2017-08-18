@@ -6,8 +6,11 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -16,6 +19,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -28,9 +32,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.IOException;
 
-public class QRScanner extends AppCompatActivity {
+public class QRScanner extends mainMenu {
     // buttons for qr
-    private Button btnBackQR;
     private Button btnSubmit;
     // where the qr will be
     private SurfaceView cameraView;
@@ -49,10 +52,8 @@ public class QRScanner extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qrscanner);
-
-
         // set the camera to the slot and display it to user
-        setContentView(R.layout.content_qrscanner);
+
         cameraView = (SurfaceView)findViewById(R.id.camera_view);
         barcodeInfo = (TextView)findViewById(R.id.code_info);
         barcodeDetector =
@@ -63,6 +64,16 @@ public class QRScanner extends AppCompatActivity {
                 .Builder(this, barcodeDetector)
                 .setRequestedPreviewSize(640,300)
                 .build();
+        //init nav drawer
+        NavigationView nvDrawer = (NavigationView) findViewById(R.id.nvView);
+        setupDrawerContent(nvDrawer);
+        final DrawerLayout mDrawer=(DrawerLayout) findViewById(R.id.drawer_layout);
+        ImageButton navButton=(ImageButton) findViewById(R.id.navButton);
+        navButton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                mDrawer.openDrawer(GravityCompat.START);
+            }
+        });
 
         cameraView.getHolder().addCallback(new SurfaceHolder.Callback() {
 
@@ -92,13 +103,6 @@ public class QRScanner extends AppCompatActivity {
             // if the surface was changed
             @Override
             public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
-                // go back
-                btnBackQR = (Button) findViewById(R.id.btnBackQR);
-                btnBackQR.setOnClickListener(new View.OnClickListener(){
-                    public void onClick(View v){
-                        startActivity(new Intent(QRScanner.this, mainMenu.class));
-                    }
-                });
                 // this butten check to see if the qr code is the correct one
                 btnSubmit = (Button) findViewById(R.id.submitButton);
                 btnSubmit.setOnClickListener(new View.OnClickListener() {

@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -8,28 +14,30 @@
     android:fitsSystemWindows="true"
     android:background="@color/backgroundColor"
     tools:context="com.example.alex.scangoals.mainMenu">
-<!---
-    <android.support.design.widget.AppBarLayout
-        android:layout_height="wrap_content"
+    <!-- The ActionBar displayed at the top -->
+   <!-- <include
+        layout="@layout/toolbar"
         android:layout_width="match_parent"
-        android:theme="@style/AppTheme.AppBarOverlay">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-    </android.support.design.widget.AppBarLayout>
-
-    <TextView
-        android:id="@+id/welcomeMsg"
-        android:layout_width="170dp"
-        android:layout_height="83dp"
-        android:text="Username Goes Here" />-->
+        android:layout_height="wrap_content" /> -->
 
     <include layout="@layout/content_main_menu"
         android:id="@+id/include" />
 
+    <ImageButton
+        android:id="@+id/navButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        android:tint="@color/common_google_signin_btn_text_dark_default"
+        app:srcCompat="@drawable/ic_keyboard_arrow_left_white_24dp" />
+
 </android.support.design.widget.CoordinatorLayout>
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nvView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@android:color/white"
+        app:menu="@menu/drawer_view" />
+    </android.support.v4.widget.DrawerLayout>
