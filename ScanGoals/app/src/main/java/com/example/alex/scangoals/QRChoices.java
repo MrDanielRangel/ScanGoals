@@ -2,6 +2,7 @@ package com.example.alex.scangoals;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.renderscript.ScriptGroup;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -22,6 +23,7 @@ public class QRChoices extends AppCompatActivity {
     public static Bundle stuffToGrab = new Bundle();
     // This grabs which workout equipment the user scaned for
     private String whichWorkout =  InputActivity.stuffToGrab1.getString("userInput1");
+
     // Grabs qr choice
     private String whichWorkoutQR = QRScanner.stuffToGrab2.getString("userInput2");
 
@@ -32,6 +34,8 @@ public class QRChoices extends AppCompatActivity {
         // set the view
         setContentView(R.layout.activity_qrchoices);
         // grab toolbar
+        InputActivity.stuffToGrab1.putString("userInput1", "0");
+        QRScanner.stuffToGrab2.putString("userInput2", "0");
 
 
         // when log button has been pressed
